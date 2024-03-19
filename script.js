@@ -57,9 +57,22 @@ const display = (userList) => {
     document.getElementById('userCount').innerText = userList.length;
 }
 
-const handleOnGenderSelect = (e)=>{
-   const gen = e.value;
-   const urlGender = api + '&gender=' + gen;
-   console.log(gen,urlGender);
-   fetchUsers(urlGender);
+const handleOnGenderSelect = (e) => {
+    const gen = e.value;
+    const urlGender = api + '&gender=' + gen;
+    console.log(gen, urlGender);
+    fetchUsers(urlGender);
 }
+
+// const handleOnSearch = (e) => {
+
+// }
+
+document.getElementById('search').addEventListener('keyup', (e) => {
+const searchedname = e.target.value;
+    const filteredUser = userList.filter((usr) => {
+        const fullName = (usr.name.first + " "+usr.name.last).toLowerCase();
+        return fullName.includes(searchedname);
+    });
+    display(filteredUser);
+})
