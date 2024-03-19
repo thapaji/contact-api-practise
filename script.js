@@ -1,5 +1,5 @@
 let userList = [];
-const api = 'https://randomuser.me/api/?results=2';
+const api = 'https://randomuser.me/api/?results=20';
 const listElm = document.getElementById('cardList');
 const fetchUsers = /* async to have async await inside the function*/ async (url = api) => {
     // const user = fetch(api);
